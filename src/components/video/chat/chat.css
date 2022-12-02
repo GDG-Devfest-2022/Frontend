@@ -1,0 +1,15 @@
+#chat-body{
+    float: right;
+    width: 22vw;
+    height: 100vh;
+    background-color: white;
+}
+form > input[type="text"]{
+    width: 20vw;
+    position: fixed;
+    bottom: 0px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
