@@ -1,12 +1,14 @@
+import { Input } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { socket } from "..";
+import Video from "../components/video/Video";
 
 export default function RoomDetail() {
   const [chats, setChats] = useState([]);
-  const [message, setMessage] = useState("");
   const { roomName } = useParams();
+  const { search } = useLocation();
   const navigate = useNavigate();
   const chatContainerEl = useRef(null);
 
@@ -38,35 +40,11 @@ export default function RoomDetail() {
     });
   };
 
-  const onChange = (e) => {
-    setMessage(e.target.value);
-  };
-
-  const onSendMessage = (e) => {
-    e.preventDefault();
-    if (!message) return alert("메시지를 입력해 주세요.");
-
-    socket.emit("message", { roomName, message }, (chat) => {
-      setChats((prevChats) => [...prevChats, chat]);
-      setMessage("");
-    });
-  };
-
   return (
     <div>
       <h1>Chat Room: {roomName}</h1>
+      <Video url={search.split("=")[1]} />
       <button onClick={onLeaveRoom}>방 나가기</button>
-      <div ref={chatContainerEl}>
-        {chats.map((chat, index) => (
-          <div key={index}>
-            <span className="message">{chat.message}</span>
-          </div>
-        ))}
-      </div>
-      <form onSubmit={onSendMessage}>
-        <input type="text" onChange={onChange} value={message} />
-        <button>보내기</button>
-      </form>
     </div>
   );
 }

@@ -1,9 +1,7 @@
-import './App.css';
-import VIDEO from './components/video/video.js';
+import "./App.css";
+import Video from "./components/Video/Video.js";
 function App() {
-  return (
-    <VIDEO />
-  );
+  return <Video />;
 }
 
 export default App;
