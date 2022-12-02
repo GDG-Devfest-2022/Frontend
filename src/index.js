@@ -5,6 +5,8 @@ import router from "./router";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 
+export const socket = io("http://localhost:4000/chat");
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
