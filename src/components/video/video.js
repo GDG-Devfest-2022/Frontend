@@ -1,5 +1,5 @@
 import './video.css';
-import CHAT from './chat/chat.js';
+import CHAT from '../chat/chat.js';
 import ReactPlayer from 'react-player'
 
 function VIDEO() {
