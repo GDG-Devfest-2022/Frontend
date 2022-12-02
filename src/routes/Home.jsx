@@ -1,4 +1,4 @@
-import { Box, Button, Center, Input } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Input } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { socket } from "..";
@@ -15,7 +15,8 @@ export default function Home() {
   };
 
   return (
-    <Center css={{ height: "100vh" }}>
+    <Center css={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <Heading mb={5}>Guess Match</Heading>
       <Box
         onSubmit={handleSubmit(onValid)}
         as="form"

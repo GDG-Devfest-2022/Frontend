@@ -1,3 +1,4 @@
+import { Box, Input } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -53,27 +54,20 @@ export default function CHAT() {
   };
 
   return (
-    <div id='chat-body'>
-      <h1>Chat Room: {roomName}</h1>
+    <Box id="chat-body" p={5}>
+      <h1>Matching Room: {roomName}</h1>
       <button onClick={onLeaveRoom}>방 나가기</button>
       <div ref={chatContainerEl}>
         {chats.map((chat, index) => (
           <div key={index}>
-            <span>
-              {chat.username
-                ? socket.id === chat.username
-                  ? ""
-                  : chat.username
-                : ""}
-            </span>
+            <span>{chat.username.slice(0, 5)} : </span>
             <span className="message">{chat.message}</span>
           </div>
         ))}
       </div>
       <form onSubmit={onSendMessage}>
-        <input type="text" onChange={onChange} value={message} />
-        <button>보내기</button>
+        <Input type="text" onChange={onChange} value={message} />
       </form>
-    </div>
+    </Box>
   );
 }
