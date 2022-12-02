@@ -14,17 +14,11 @@ export default function Home() {
     });
   };
 
-  const onJoinRoom = (roomName) => () => {
-    socket.emit("join-room", roomName, () => {
-      navigate(`/room/${roomName}`);
-    });
-  };
-
   return (
     <Center>
       <form onSubmit={handleSubmit(onValid)}>
         <Input {...register("roomName", { required: true })} />
-        <Button type="submit">방 생성</Button>
+        <Button type="submit">방 참가 및 생성</Button>
       </form>
     </Center>
   );

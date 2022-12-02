@@ -59,13 +59,6 @@ export default function RoomDetail() {
       <div ref={chatContainerEl}>
         {chats.map((chat, index) => (
           <div key={index}>
-            <span>
-              {chat.username
-                ? socket.id === chat.username
-                  ? ""
-                  : chat.username
-                : ""}
-            </span>
             <span className="message">{chat.message}</span>
           </div>
         ))}
