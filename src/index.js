@@ -4,8 +4,11 @@ import "./index.css";
 import router from "./router";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
+import { io } from "socket.io-client";
 
-export const socket = io("http://localhost:4000/chat");
+export const socket = io("http://localhost:4000/chat", {
+  transports: ["websocket"],
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
