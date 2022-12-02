@@ -53,7 +53,7 @@ export default function CHAT() {
   };
 
   return (
-    <div>
+    <div id='chat-body'>
       <h1>Chat Room: {roomName}</h1>
       <button onClick={onLeaveRoom}>방 나가기</button>
       <div ref={chatContainerEl}>
